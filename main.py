@@ -4,8 +4,6 @@ import sys
 import os
 import secrets
 import string
-import subprocess
-import shlex
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -115,7 +113,7 @@ def generate_sql_injection_snippet(length, offensive=False):
 
     if offensive:
         # More straightforward SQL injection
-        snippet = f"'; DROP TABLE users; --"
+        snippet = "'; DROP TABLE users; --"
     else:
         # SQL injection with string concatenation
         random_value = generate_random_string(length // 4)
@@ -185,8 +183,10 @@ def write_snippet_to_file(snippet, output_file):
         with open(output_file, "w") as f:
             f.write(snippet)
         logging.info(f"Snippet written to: {output_file}")
+        return True
     except Exception as e:
         logging.error(f"Error writing to file: {e}")
+        return False
 
 
 def validate_languages(languages):
@@ -232,8 +232,10 @@ def main():
                 sys.exit(1)
         output_file = os.path.join(OUTPUT_DIR, f"vulnerable_snippet_{generate_random_string(8)}.txt")
 
-    # Write the snippet to a file
-    write_snippet_to_file(snippet, output_file)
+    # Write the snippet to a file. A failed write is the whole job failing,
+    # so it exits 1 instead of logging Finished over an error.
+    if not write_snippet_to_file(snippet, output_file):
+        sys.exit(1)
 
     logging.info("Finished.")
 

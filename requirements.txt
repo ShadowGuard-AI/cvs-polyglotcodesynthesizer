@@ -1,1 +1,1 @@
-shlex>=1.1 # shlex is a built-in module, usually no separate install needed
+# No third-party dependencies; standard library only.
