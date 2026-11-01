@@ -113,6 +113,10 @@ def generate_sql_injection_snippet(length, offensive=False):
 
     if offensive:
         # More straightforward SQL injection
+        # Length plays no part on this branch: the string is fixed
+        # whatever --length asked for. The other branches only use
+        # length to size the random filler, so --length is an
+        # approximation everywhere and no constraint here at all.
         snippet = "'; DROP TABLE users; --"
     else:
         # SQL injection with string concatenation
@@ -195,6 +199,11 @@ def validate_languages(languages):
     this would check if the languages are supported or valid.
     """
     #Add your Language validation logic here.
+    # As shipped this accepts every value, and nothing downstream reads
+    # the languages either: generate_snippet chooses only by
+    # vulnerability type. So the required --languages argument changes
+    # nothing about the output, and the snippet is a single language
+    # example rather than a true polyglot across the named languages.
     return True
 
 def main():
