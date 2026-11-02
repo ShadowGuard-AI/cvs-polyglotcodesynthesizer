@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="The fen in three bands: mist drifting and thinning over the pools in the far band, the clock house door opening on its hinge in the middle band while the cuckoo steps to the sill, rocks once as it calls, steps back and the door closes, the pendulum swinging below, and dew sliding down a reed stem in the near band">
+<rect width="900" height="300" fill="#34423a"/>
+<rect width="900" height="110" fill="#c6cdc0"/>
+<g fill="#f7f5ec" opacity="0.75"><rect x="0" y="26" width="900" height="14"><animate attributeName="opacity" values="0.8;0.35;0.8" dur="16s" repeatCount="indefinite"/></rect><rect x="0" y="58" width="900" height="10"><animate attributeName="opacity" values="0.6;0.25;0.6" dur="20s" repeatCount="indefinite"/></rect>
+<animateTransform attributeName="transform" type="translate" values="0 0; 40 0; 0 0" dur="18s" repeatCount="indefinite"/></g>
+<ellipse cx="640" cy="86" rx="190" ry="20" fill="#a8bcb4"><animate attributeName="opacity" values="0.7;1;0.7" dur="15s" repeatCount="indefinite"/></ellipse>
+<ellipse cx="180" cy="96" rx="130" ry="14" fill="#96aca0"/>
+<g stroke="#6b7f4e" stroke-width="4"><line x1="60" y1="110" x2="56" y2="52"/><line x1="110" y1="110" x2="114" y2="48"/><line x1="790" y1="110" x2="786" y2="54"/><line x1="840" y1="110" x2="846" y2="50"/>
+<animateTransform attributeName="transform" type="rotate" values="0 450 110; 1.2 450 110; 0 450 110" dur="9s" repeatCount="indefinite"/></g>
+<g>
+<rect x="418" y="196" width="10" height="80" fill="#60482c"/>
+<polygon points="316,128 428,74 540,128" fill="#b5502a"/>
+<rect x="328" y="128" width="200" height="118" fill="#6b7f4e"/>
+<rect x="340" y="138" width="176" height="98" fill="#8c683e"/>
+<circle cx="428" cy="172" r="34" fill="#f7f5ec" stroke="#28241e" stroke-width="3"/>
+<line x1="428" y1="172" x2="448" y2="152" stroke="#28241e" stroke-width="3"/><line x1="428" y1="172" x2="422" y2="192" stroke="#28241e" stroke-width="3"/>
+<g><animateTransform attributeName="transform" type="translate" values="-26 0; 0 0; 0 0; -26 0" keyTimes="0;0.25;0.75;1" dur="12s" repeatCount="indefinite"/>
+<g><animateTransform attributeName="transform" type="rotate" values="0 428 208; -6 428 208; 0 428 208" dur="12s" repeatCount="indefinite"/>
+<ellipse cx="428" cy="206" rx="22" ry="14" fill="#1b7f7a"/><ellipse cx="434" cy="208" rx="12" ry="8" fill="#f7f5ec"/><circle cx="446" cy="196" r="8" fill="#1b7f7a"/><polygon points="453,194 464,197 453,200" fill="#b5502a"/></g></g>
+<rect x="340" y="228" width="176" height="8" fill="#b5502a"/>
+<g><animateTransform attributeName="transform" type="rotate" values="0 356 190; -38 356 190; -38 356 190; 0 356 190" keyTimes="0;0.25;0.75;1" dur="12s" repeatCount="indefinite"/>
+<rect x="342" y="188" width="28" height="48" fill="#8c683e" stroke="#b5502a" stroke-width="2"/></g>
+<g stroke="#28241e" stroke-width="2"><line x1="428" y1="212" x2="428" y2="240"><animate attributeName="x2" values="420;436;420" dur="3s" repeatCount="indefinite"/></line></g>
+<circle cx="428" cy="244" r="7" fill="#b5502a"><animate attributeName="cx" values="420;436;420" dur="3s" repeatCount="indefinite"/></circle>
+<polygon points="300,252 330,242 336,254 312,260" fill="#6b7f4e"/>
+</g>
+<g stroke="#4a5e34" stroke-width="5"><line x1="36" y1="300" x2="48" y2="212"/><line x1="66" y1="300" x2="72" y2="222"/><line x1="864" y1="300" x2="856" y2="218"/></g>
+<g fill="#f7f5ec"><circle cx="52" cy="232" r="4"><animate attributeName="cy" values="232;282;282" keyTimes="0;0.6;1" dur="7s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;0.6;1" dur="7s" repeatCount="indefinite"/></circle>
+<circle cx="70" cy="244" r="3"><animate attributeName="cy" values="244;290;290" keyTimes="0;0.6;1" dur="9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0" keyTimes="0;0.6;1" dur="9s" repeatCount="indefinite"/></circle></g>
+</svg>
