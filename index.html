@@ -3,162 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cvs Polyglotcodesynthesizer: what it is, how it runs, where it stops</title>
-<meta name="description" content="Cvs Polyglotcodesynthesizer is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.">
+<title>cvs-polyglotcodesynthesizer: The Cuckoo Clock of the Fen</title>
 <style>
-:root {
-  --bg: #121418; --panel: #1c2028; --ink: #e8ecf0;
-  --mut: #252b36;
-  --acc: #5cc8e0; --acc2: #f0a05c;
-  --line: #1c2028;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink);
-  font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.55; }
-code, pre, .mono { font-family: 'Consolas', monospace; }
-a { color: var(--acc2); }
-.hero { padding: 3rem 6vw 1rem; }
-.hero img.banner { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; }
-.logo { width: 92px; height: 92px; border-radius: 18px;
-  border: 1px solid var(--line); }
-h1 { font-size: 2.4rem; margin: 0.4em 0 0.1em; }
-h2 { border-bottom: 2px solid var(--acc); padding-bottom: 0.2em;
-  margin-top: 2em; }
-.lede { font-size: 1.15rem; max-width: 62ch; }
-main { padding: 0 6vw 3rem; max-width: 1180px; margin: 0 auto; }
-.grid { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 1rem 1.2rem; }
-.card.pop { animation: rise 0.7s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; } }
-pre.code { background: #101014; color: #e8e6df; padding: 1rem 1.2rem;
-  border-radius: 12px; overflow-x: auto; font-size: 0.86rem;
-  border-left: 5px solid var(--acc); }
-table { border-collapse: collapse; width: 100%; }
-td, th { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem;
-  text-align: left; }
-.shots { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.shots img { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; background: #f4f1e8; }
-footer { padding: 2rem 6vw; border-top: 1px solid var(--line);
-  color: var(--mut); }
-.rail { display: flex; gap: 1.2rem; align-items: flex-start; }
-.rail nav { position: sticky; top: 1rem; min-width: 180px; }
-@media (max-width: 760px) { .rail { flex-direction: column; }
-  .rail nav { position: static; } }
-@media (prefers-reduced-motion: reduce) {
-  .card.pop { animation: none; } * { scroll-behavior: auto; } }
+@font-face { font-family: "Boogaloo"; src: url("fonts/Boogaloo.ttf"); }
+@font-face { font-family: "Bitter"; src: url("fonts/Bitter.ttf"); }
+body { margin: 0; background: #eef4f0; color: #1d2b26; font-family: "Bitter", serif; }
+header { text-align: center; padding: 2rem 1rem 0.5rem; }
+header img.intro { max-width: 100%; border: 3px solid #0f766e; }
+h1, h2 { font-family: "Boogaloo", sans-serif; color: #0f766e; }
+h1 { font-size: 2.2rem; margin: 1rem 0 0.2rem; }
+.tagline { color: #47635a; margin: 0 0 1rem; }
+main { max-width: 880px; margin: 0 auto; padding: 0 1rem 3rem; }
+section { background: #ffffff; border: 1px solid #0f766e; border-top: 5px solid #b4552d; border-radius: 6px; padding: 1.2rem 1.4rem; margin: 1.4rem 0; }
+section h2 { margin-top: 0; }
+code, pre { background: #eef4f0; }
+pre { padding: 1rem; overflow-x: auto; white-space: pre-wrap; }
+.btn { display: inline-block; background: #0f766e; color: #ffffff; font-family: "Boogaloo", sans-serif; padding: 0.45rem 1.3rem; border-radius: 4px; margin: 0.3rem 0.4rem 0.3rem 0; }
+.divider { border: none; border-top: 2px solid #b4552d; margin: 0.4rem auto; width: 60%; }
+footer { text-align: center; color: #47635a; padding: 1rem; }
+img.mark { max-height: 120px; }
 </style>
 </head>
-<body class="layout-grid">
-<!-- This page exists for cvs-polyglotcodesynthesizer alone: the layout (console-grid),
-     the colors, and the type were picked for this project, not
-     shared with the other project pages. The code block below is
-     copied from the file it names, line for line. If it looks
-     plain, that is because the project is plain, and I would
-     rather the page match the project than dress it up. The one
-     thing I will not do here is oversell: what this project does
-     not do is stated on the page, not hidden from it. -->
-<header class="hero">
-  <img class="logo" src="assets/logo.png" alt="Cvs Polyglotcodesynthesizer logo">
-  <img class="banner" src="assets/banner.png" alt="">
-  <h1>Cvs Polyglotcodesynthesizer</h1>
-  <p class="mono"><a href="https://github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer">github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer</a></p>
+<body>
+<header>
+<img class="intro" src="intro-banner.png" alt="Fen water and reeds at dusk, no lettering">
+<h1>cvs-polyglotcodesynthesizer: The Cuckoo Clock of the Fen</h1>
+<p class="tagline">A clock that announces one of three hours, on time, whether or not the dial was consulted.</p>
+<img class="mark" src="logo.png" alt="Cuckoo clock logo">
+<div><img src="banner.png" alt="cvs-polyglotcodesynthesizer wordmark banner" style="max-width:100%"></div>
 </header>
-
 <main>
-  <section class="rail">
-    <nav aria-label="on this page">
-      <p class="mono"><a href="#run">Run it</a><br>
-      <a href="#files">The files</a><br>
-      <a href="#sheets">The sheets</a><br>
-      <a href="https://github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer">The repo</a></p>
-    </nav>
-    <div>
-      <p class="lede">Cvs Polyglotcodesynthesizer is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.</p>
-      <div class="grid">
-        <div class="card pop"><h3>What it is</h3>
-          <p>Cvs Polyglotcodesynthesizer: 3 files, 262 counted
-          lines across Python 242, Markdown 19, Text 1. One job, done in the
-          open, in files you can read.</p></div>
-        <div class="card pop"><h3>The biggest piece</h3>
-          <p><code>main.py</code> carries the most
-          lines. If the project grows, that file is where the growth
-          lands first, for better or worse.</p></div>
-        <div class="card pop"><h3>The honest gap</h3>
-          <p>No test files yet. That is the honest gap, and the roadmap in the visuals folder says what the first one should cover.</p></div>
-      </div>
-      <section id="run">
-        <h2>Run it</h2>
-        <p>The repo README has the exact commands for this one. The
-        shape is the shape for most of my projects: clone it, read the
-        top file first so you know what will happen, then run it on
-        something you do not mind breaking.</p>
-        <p class="mono">$ git clone https://github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer.git<br>$ cd cvs-polyglotcodesynthesizer</p>
-      </section>
-      
-  <section aria-label="real code">
-    <h2>The code, as it sits in the repo</h2>
-    <p>From <code>main.py</code>, line 15 on. I did
-    not tidy it for the page. What you see is what the file has.</p>
-    <pre class="code"><code>DEFAULT_SNIPPET_LENGTH = 20  # In characters
+<section>
+<h2>What Comes Out of the Door</h2>
+<p>The tool generates a short intentionally vulnerable snippet for one chosen pattern class, from fixed templates with a random string filling part of the length, and writes it to a file. The three pattern classes are named here as facts only: cross site scripting, SQL injection, and command injection. No template body, payload string, or filler value is printed on this page or in the re-skin, by the standing rule for this repo.</p>
+</section>
+<hr class="divider">
+<section>
+<h2>The Languages Flag Changes Nothing</h2>
+<p>The --languages argument is accepted and required, and it must be given. It changes nothing. The templates are plain text, the languages do not change the generated snippet, and no language specific parsing is performed. Validation of the values is a placeholder that returns true for every value, and no later step reads the values. The clock's hands are set by the hour that was chosen, not by the dial's decoration.</p>
+</section>
+<hr class="divider">
+<section>
+<h2>Running It</h2>
+<p>Acquisition, exactly as published:</p>
+<pre>git clone https://github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer
+cd cvs-polyglotcodesynthesizer</pre>
+<p>The clone line is accurate as it stands, naming ShadowGuard-AI with its hyphen and carrying no .git ending. The invocation is <code>python3 main.py --vulnerability VULN --languages LANG [LANG ...]</code>, with <code>--length</code> for the approximate snippet length (default 20), <code>--output_file</code> for the destination (a random filename in the output directory when not specified), and <code>--offensive</code> for the direct execution form the README itself flags as requiring extra caution.</p>
+</section>
+<hr class="divider">
+<section>
+<h2>Licensing</h2>
+<p>The README closes with the line <code>Licensed under the terms in LICENSE.</code>, reproduced as published. The repository LICENSE file carries the licence text itself; its holder credit combines a pen name with a lone initial standing for the other name, recorded here without spelling that initial out.</p>
+</section>
+<section>
+<h2>The Record as Published</h2>
+<p>The live README, preserved verbatim:</p>
+<pre>![Banner](banner.png)
 
-def setup_argparse():
-    &quot;&quot;&quot;
-    Sets up the argument parser for the command-line interface.
+# cvs-PolyglotCodeSynthesizer
+Generates a short intentionally vulnerable snippet for one chosen pattern (xss, sql_injection or command_injection) from fixed templates with a random string filling part of the length, and writes it to a file. The --languages argument is accepted and required, but the templates are plain text and the languages do not change the generated snippet; no language specific parsing is performed. - Focused on Tools designed to automatically generate vulnerable code snippets based on common vulnerability patterns (e.g., SQL injection, XSS, command injection). This facilitates training and testing of security scanners and code analysis tools, as well as enabling developers to understand and avoid specific vulnerabilities.
 
-    Returns:
-        argparse.ArgumentParser: The argument parser object.
-    &quot;&quot;&quot;
-    parser = argparse.ArgumentParser(
-        description=&quot;cvs-PolyglotCodeSynthesizer: Generates polyglot code snippets with vulnerabilities.&quot;
-    )
+## Install
+`git clone https://github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer`
 
-    parser.add_argument(
-        &quot;--vulnerability&quot;,
-        type=str,
-        choices=[&quot;xss&quot;, &quot;sql_injection&quot;, &quot;command_injection&quot;],
-        required=True,
-        help=&quot;The type of vulnerability to introduce (xss, sql_injection, command_injection).&quot;,
-    )
+## Usage
+`python3 main.py --vulnerability VULN --languages LANG [LANG ...]`
 
-    parser.add_argument(</code></pre>
-  </section>
-      <section id="files">
-        <h2>The files that matter</h2>
-        <table><tr><th>File</th><th>Lines</th></tr>
-        <tr><td><code>main.py</code></td><td>242</td></tr>
-        <tr><td><code>README.md</code></td><td>19</td></tr>
-        <tr><td><code>requirements.txt</code></td><td>1</td></tr>
-        </table>
-        <p>Names doing the work: <span class="mono">setup_argparse, generate_random_string, generate_xss_snippet, generate_sql_injection_snippet, generate_command_injection_snippet, generate_snippet, write_snippet_to_file, validate_languages</span>.</p>
-      </section>
-      <section id="sheets">
-        <h2>Drawn by hand</h2>
-        <p>I sketch my projects on notebook paper so I have to
-        understand them well enough to draw them. The full set,
-        with the counts and how they were counted, is the
-        <a href="https://github.com/ShadowGuard-AI/cvs-polyglotcodesynthesizer/tree/main/cvs-polyglotcodesynthesizer-Visuals">cvs-polyglotcodesynthesizer-Visuals</a>
-        folder in the repo. Nothing is drawn over the binder holes.
-        That is a rule, not a style.</p>
-        <div class="shots">
-          <img src="assets/architecture.png" alt="Hand drawn architecture sheet for Cvs Polyglotcodesynthesizer">
-          <img src="assets/flowchart.png" alt="Hand drawn flowchart sheet for Cvs Polyglotcodesynthesizer">
-          <img src="assets/product-map.png" alt="Hand drawn product map sheet for Cvs Polyglotcodesynthesizer">
-        </div>
-      </section>
-    </div>
-  </section>
+## Parameters
+- `-h`: Show help message and exit
+- `--vulnerability`: The type of vulnerability to introduce: `xss`, `sql_injection`, or `command_injection` (required).
+- `--languages`: The target languages/interpreters for the polyglot snippet (required, one or more).
+- `--length`: The approximate length of the generated code snippet (default: 20).
+- `--output_file`: The file to write the generated code snippet to. If not specified, a random filename is generated in the output directory.
+- `--offensive`: Generate snippet suitable for direct execution (more 'offensive'). Requires extra caution.
+
+## License
+Licensed under the terms in LICENSE.</pre>
+</section>
 </main>
-<footer>
-  <p>Cvs Polyglotcodesynthesizer is one of my projects. This page was written
-  from the repo itself on 2026-10-30: the counts are the
-  repo's counts, the code is the repo's code, and the gaps are the
-  repo's gaps.</p>
-</footer>
+<footer>cvs-polyglotcodesynthesizer: The Cuckoo Clock of the Fen. A themed re-skin; the tool and its facts are unchanged.</footer>
 </body>
 </html>
